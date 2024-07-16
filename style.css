@@ -1,0 +1,57 @@
+/*---------------FONTS---------------*/
+
+@font-face {
+    font-family: bigNoodle;
+    src: url("bigNoodle.ttf");
+}
+@font-face {
+    font-family: bankSans;
+    src: url("bankSans.otf");
+}
+
+/*--------------CLASSES--------------*/
+
+/*--------------general--------------*/
+
+.container{
+    width: max-content;
+    margin: auto;
+    text-align: center;
+}
+
+.button{
+    font-family: bigNoodle;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    padding: 10px 20px; 
+}
+
+.dropdown{
+    font-family: bigNoodle;
+    font-size: 30px;
+    text-align: center;
+}
+
+/*--------------specific--------------*/
+
+.menuButton{
+    font-size: 30px;
+    min-width: 200px;
+}
+
+.homeButton{
+    font-size: 20px;
+    min-width: 100px;
+}
+
+.pageTitle{
+    font-family: bankSans;
+    font-size: 40px;
+    text-align: center;
+}
+
+
+
+
