@@ -1,16 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+
         <title>View Games</title>
-        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <link rel="icon" type="image/x-icon" href="/Images/favicon.png">
+        <link rel="stylesheet" href="style.css">
+
     </head>
+
     <body>
-        <div class="container navigationContainer">
-            <h1 class="pageTitle">You want to view games</h1>
+
+        <div class="navigation">
+
+            <div class="navLeft">
+                
+                <div class="iconContainer">
+                    <img src="Images/owLogo2.png" class="navIcon">
+                </div>
+
+                <div class="titleContainer">
+                    <h1 class="pageTitle">View Menu</h1>
+                </div>
+
+            </div>
+            
+
+            <div class="navRight">
+
+                <div class="linkContainer">
+                    <a href="index.html" class="homeButton navButton">Home</a>
+                </div>
+
+                <div class="linkContainer">
+                    <a href="track.html" class="trackButton navButton">Track</a>
+                </div>
+
+                <div class="linkContainer">
+                    <a href="view.html" class="trackButton currentNavButton">View</a>
+                </div>
+
+            </div>
+
         </div>
-        <div class="container homeContainer">
-            <button class="button homeButton" onclick="document.location='index.html'">Home</button>
+
+        <div class="container viewContainer">
+            <h1>View</h1>
         </div>
+
     </body>
 </html>

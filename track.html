@@ -1,24 +1,61 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+        
         <title>Track Games</title>
-        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <link rel="icon" type="image/x-icon" href="/Images/favicon.png">
+        <link rel="stylesheet" href="style.css">
+
     </head>
+
     <body>
-        <div class="container navigationContainer">
-            <h1 class="pageTitle">Track Games</h1>
+
+        <div class="navigation">
+
+            <div class="navLeft">
+                
+                <div class="iconContainer">
+                    <img src="Images/owLogo2.png" class="navIcon">
+                </div>
+
+                <div class="titleContainer">
+                    <h1 class="pageTitle">Track Menu</h1>
+                </div>
+
+            </div>
+
+            <div class="navRight">
+
+                <div class="linkContainer">
+                    <a href="index.html" class="homeButton navButton">Home</a>
+                </div>
+
+                <div class="linkContainer">
+                    <a href="track.html" class="trackButton currentNavButton">Track</a>
+                </div>
+
+                <div class="linkContainer">
+                    <a href="view.html" class="trackButton navButton">View</a>
+                </div>
+
+            </div>
+            
         </div>
-        <div class="container dropdownContainer">
-            <select class="dropdown mapDropdown">
-                <option selected disabled>Select Map</option>
-                <option value="Antarctic Peninsula">Antarctic Peninsula</option>
-                <option value="Blizzard World">Blizzard World</option>
-                <option value="Busan">Busan</option>
-            </select>
+
+        <div class="trackContainer">
+
+            <div class="dropdownContainer">
+
+                <select class="dropdown mapDropdown">
+                    <option selected disabled>Select Map</option>
+                    <option value="Antarctic Peninsula">Antarctic Peninsula</option>
+                    <option value="Blizzard World">Blizzard World</option>
+                    <option value="Busan">Busan</option>
+                </select>
+
+            </div>
+
         </div>
-        <div class="container homeContainer">
-            <button class="button homeButton" onclick="document.location='index.html'">Home</button>
-        </div>
+
     </body>
 </html>

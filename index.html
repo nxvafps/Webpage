@@ -3,16 +3,42 @@
     <head>
         <link rel="stylesheet" href="style.css">
         <title> Overwatch Competetive Tracker </title>
-        <link rel="icon" type="image/x-icon" href="favicon.png">
+        <link rel="icon" type="image/x-icon" href="Images/favicon.png">
     </head>
     <body> 
-        <div class="container navigationContainer">
-            <h1 class="pageTitle">Overwatch Competetive Tracker Menu </h1>
+        <div class="navigation">
+            <div class="navLeft">
+                
+                <div class="iconContainer">
+                    <img src="Images/owLogo2.png" class="navIcon">
+                </div>
+
+                <div class="titleContainer">
+                    <h1 class="pageTitle">Overwatch Competetive Tracker Home</h1>
+                </div>
+
+            </div>
+
+            <div class="navRight">
+
+                <div class="linkContainer">
+                    <a href="index.html" class="homeButton currentNavButton">Home</a>
+                </div>
+
+                <div class="linkContainer">
+                    <a href="track.html" class="trackButton navButton">Track</a>
+                </div>
+
+                <div class="linkContainer">
+                    <a href="view.html" class="trackButton navButton">View</a>
+                </div>
+
+            </div>
+
         </div>
-        <div class="container menuContainer">
-            <button class="button trackButton menuButton" onclick="document.location='track.html'">Track Games</button>
-            <br>
-            <button class="button viewButton menuButton" onclick="document.location='view.html'">View Games</button>
+
+        <div class="homeContainer">
+            <h1>Home</h1>
         </div>
     </body>
 </html>

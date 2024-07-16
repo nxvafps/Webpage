@@ -2,64 +2,131 @@
 
 @font-face {
     font-family: bigNoodle;
-    src: url("bigNoodle.ttf");
+    src: url("Fonts/bigNoodle.ttf");
 }
+
 @font-face {
     font-family: bankSans;
-    src: url("bankSans.otf");
+    src: url("Fonts/bankSans.otf");
 }
 
-/*--------------CLASSES--------------*/
-
-/*--------------general--------------*/
-
-.container{
-    width: max-content;
-    margin: auto;
-    text-align: center;
+@font-face {
+    font-family: futara;
+    src: url("Fonts/Futura.otf");
 }
-
-.button{
-    font-family: bigNoodle;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px 2px;
-    padding: 10px 20px; 
-}
-
-.dropdown{
-    font-family: bigNoodle;
-    font-size: 30px;
-    text-align: center;
-}
-
-/*--------------specific--------------*/
-
-.menuButton{
-    font-size: 30px;
-    min-width: 200px;
-}
-
-.homeButton{
-    font-size: 20px;
-    min-width: 100px;
-}
-
-.pageTitle{
-    font-family: bankSans;
-    font-size: 40px;
-    text-align: center;
-}
-
-.navigationContainer{
-    background-color: #434343;
-    height: 40px;
-    width: max-content;
-}
-
-/*--------------TAGS--------------*/
+/*--------------GENERAL--------------*/
 
 body{
     background-color: #7b7777;
 }
+
+a{
+    font-family: futara;
+    text-align: center;
+}
+
+/*-------------NAVIGATION-------------*/
+
+.navigation{
+    background-color: #434343;
+    height: 80px;
+    width: 100%;
+    /*Below text sets equal space between all divs inside this div to fill content area*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navLeft{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navIcon{
+    height: 60px;
+    padding: 0 5px;
+}
+.pageTitle{
+    font-family: futara;
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.navRight{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkContainer{
+    text-align: center;
+    width: 100px;
+    box-sizing: border-box;
+}
+
+.linkContainer > a:any-link {
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+
+.navButton{
+    background-color: #434343;
+    color: #ffffff;
+}
+
+.currentNavButton {
+    background-color: #ffffff;
+    color: #434343;
+}
+
+/*--------------HOME--------------*/
+
+.homeContainer{
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.homeContainer >  *{
+    font-family: futara;
+    color: #ffffff;
+}
+
+/*-------------TRACK-------------*/
+
+.trackContainer{
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.trackContainer > *{
+    font-family: futara;
+    color: #ffffff;
+}
+
+.dropdown{
+    font-family: futara;
+    font-size: 30px;
+    text-align: center;
+}
+
+/*--------------VIEW--------------*/
+
+.viewContainer{
+    margin: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.viewContainer > *{
+    font-family: futara;
+    color: #ffffff;
+}
+
+
+
+
