@@ -52,6 +52,12 @@
     text-align: center;
 }
 
+.navigationContainer{
+    background-color: #434343;
+    height: 40px;
+    width: max-content;
+}
+
 /*--------------TAGS--------------*/
 
 body{
