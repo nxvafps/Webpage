@@ -14,6 +14,7 @@
     font-family: futara;
     src: url("Fonts/Futura.otf");
 }
+
 /*--------------GENERAL--------------*/
 
 body{
@@ -47,6 +48,7 @@ a{
     height: 60px;
     padding: 0 5px;
 }
+
 .pageTitle{
     font-family: futara;
     color: #ffffff;
