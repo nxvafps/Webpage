@@ -32,57 +32,60 @@ a{
     background-color: #434343;
     height: 80px;
     width: 100%;
-    /*Below text sets equal space between all divs inside this div to fill content area*/
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    align-items: center; /*vertically aligns items in the center*/
+    justify-content: space-between; /*Sets equal space between all elements inside*/
 }
 
 .navLeft{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-basis: 50%; /*sets the div width to half of the parents width*/
+    align-items: center; /*vertically aligns items in the center*/
+    justify-content: left; /*horizontally aligns items to the left*/
 }
+    /*Contents of the left hand navigation flexbox*/
 
-.navIcon{
+    .navIcon{
     height: 60px;
     padding: 0 5px;
-}
+    }
 
-.pageTitle{
+    .pageTitle{
     font-family: futara;
     color: #ffffff;
     font-size: 20px;
-}
+    }
 
 .navRight{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-basis: 50%; /*sets the div width to half of the parents width*/
+    align-items: center; /*vertically aligns items in the center*/
+    justify-content: right; /*horizontally aligns items to the right*/
 }
+    /*Contents of the right hand navigation flexbox*/
 
-.linkContainer{
+    .linkContainer{
     text-align: center;
     width: 100px;
     box-sizing: border-box;
-}
+    }
 
-.linkContainer > a:any-link {
-    font-size: 20px;
-    text-decoration: none;
-    margin: 0 5px;
-    padding: 5px 10px;
-}
+    .linkContainer > a:any-link {
+        font-size: 20px;
+        text-decoration: none;
+        margin: 0 5px;
+        padding: 5px 10px;
+    }
 
-.navButton{
+    .navButton{
     background-color: #434343;
     color: #ffffff;
-}
+    }
 
-.currentNavButton {
+    .currentNavButton {
     background-color: #ffffff;
     color: #434343;
-}
+    }
 
 /*--------------HOME--------------*/
 
