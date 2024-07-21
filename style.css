@@ -45,18 +45,18 @@ a{
 }
     /*Contents of the left hand navigation flexbox*/
 
-    .navIcon{
+    .navIcon {
     height: 60px;
     padding: 0 5px;
     }
 
-    .pageTitle{
+    .pageTitle {
     font-family: futara;
     color: #ffffff;
     font-size: 20px;
     }
 
-.navRight{
+.navRight {
     display: flex;
     flex-basis: 50%; /*sets the div width to half of the parents width*/
     align-items: center; /*vertically aligns items in the center*/
@@ -64,7 +64,7 @@ a{
 }
     /*Contents of the right hand navigation flexbox*/
 
-    .linkContainer{
+    .linkContainer {
     text-align: center;
     width: 100px;
     box-sizing: border-box;
@@ -77,7 +77,7 @@ a{
         padding: 5px 10px;
     }
 
-    .navButton{
+    .navButton {
     background-color: #434343;
     color: #ffffff;
     }
@@ -89,31 +89,31 @@ a{
 
 /*--------------HOME--------------*/
 
-.homeContainer{
+.homeContainer {
     margin: auto;
     text-align: center;
     width: 100%;
 }
 
-.homeContainer >  *{
+.homeContainer >  * {
     font-family: futara;
     color: #ffffff;
 }
 
 /*-------------TRACK-------------*/
 
-.trackContainer{
+.trackContainer {
     margin: auto;
     text-align: center;
     width: 100%;
 }
 
-.trackContainer > *{
+.trackContainer > * {
     font-family: futara;
     color: #ffffff;
 }
 
-.dropdown{
+.dropdown {
     font-family: futara;
     font-size: 30px;
     text-align: center;
@@ -121,13 +121,13 @@ a{
 
 /*--------------VIEW--------------*/
 
-.viewContainer{
+.viewContainer {
     margin: auto;
     text-align: center;
     width: 100%;
 }
 
-.viewContainer > *{
+.viewContainer > * {
     font-family: futara;
     color: #ffffff;
 }
