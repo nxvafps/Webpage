@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Track Games </title>
-    <link rel="icon" type="image/x-icon" href="Images/favicon2.png">
+    <link rel="icon" type="image/x-icon" href="Images/novaLogo3.png">
     <link rel="stylesheet" href="style.css">
 </head>
 <body> 
@@ -12,22 +12,26 @@
 
         <div class="navLeft">
             <div class="iconContainer">
-                <img src="Images/owLogo2.png" class="navIcon">
+                <img src="Images/novaLogo3.png" class="navIcon">
             </div>
-            <div class="titleContainer">
-                <h1 class="pageTitle">Track Games</h1>
+            <div class="iconNameContainer">
+                <h1 class="iconName">novaFPS</h1>
             </div>
+        </div>
+
+        <div class="navCenter">
+            <h1 class="pageTitle">Track Games</h1>
         </div>
 
         <div class="navRight">
             <div class="linkContainer">
-                <a href="index.html" class="homeButton navButton">Home</a>
+                <a href="index.html" class="homeLink navLink">Home</a>
             </div>
             <div class="linkContainer">
-                <a href="track.html" class="trackButton currentNavButton">Track</a>
+                <a href="track.html" class="trackLink navLink currentNavLink">Track</a>
             </div>
             <div class="linkContainer">
-              <a href="view.html" class="viewButton navButton">View</a>
+              <a href="view.html" class="viewLink navLink">View</a>
             </div>
         </div>
 
@@ -35,14 +39,15 @@
 
     <div class="trackContainer">
 
-        <div class="dropdownContainer">
+        <h1>Track</h1>
 
-            <h1>Track</h1>
+        <div class="dropdownContainer">
+            
             <select class="dropdown mapDropdown">
-                <option selected disabled>Select Map</option>
-                <option value="Antarctic Peninsula">Antarctic Peninsula</option>
-                <option value="Blizzard World">Blizzard World</option>
-                <option value="Busan">Busan</option>
+                <option class="dropdownOption" selected disabled>Select Map</option>
+                <option class="dropdownOption" value="Antarctic Peninsula">Antarctic Peninsula</option>
+                <option class="dropdownOption" value="Blizzard World">Blizzard World</option>
+                <option class="dropdownOption" value="Busan">Busan</option>
             </select>
 
         </div>

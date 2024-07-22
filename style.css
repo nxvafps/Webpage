@@ -11,7 +11,7 @@
 }
 
 @font-face {
-    font-family: futara;
+    font-family: futura;
     src: url("Fonts/Futura.otf");
 }
 
@@ -19,12 +19,14 @@
 
 body{
     background-color: #7b7777;
+    font-family: futura;
+    color: #ffffff;
 }
 
-a{
-    font-family: futara;
+/* a{
+    font-family: futura;
     text-align: center;
-}
+}*/
 
 /*-------------NAVIGATION-------------*/
 
@@ -39,50 +41,60 @@ a{
 
 .navLeft{
     display: flex;
-    flex-basis: 50%; /*sets the div width to half of the parents width*/
+    flex-basis: 33%; /*sets the div width to third of the parents width*/
     align-items: center; /*vertically aligns items in the center*/
     justify-content: left; /*horizontally aligns items to the left*/
 }
+
     /*Contents of the left hand navigation flexbox*/
 
     .navIcon {
     height: 60px;
-    padding: 0 5px;
+    padding: 0 10px;
     }
 
-    .pageTitle {
-    font-family: futara;
-    color: #ffffff;
+    .iconName {
     font-size: 20px;
+    }
+
+.navCenter {
+        display: flex;
+        flex-basis: 33%; /*sets the div width to third of the parents width*/
+        align-items: center; /*vertically aligns items in the center*/
+        justify-content: center; /*horizontally aligns items to the center*/
+}
+
+    /*Contents of the center navigation flexbox*/
+
+    .pageTitle {
+        font-size: 30px;
+        text-align: center;
     }
 
 .navRight {
     display: flex;
-    flex-basis: 50%; /*sets the div width to half of the parents width*/
+    flex-basis: 33%; /*sets the div width to third of the parents width*/
     align-items: center; /*vertically aligns items in the center*/
     justify-content: right; /*horizontally aligns items to the right*/
 }
+
     /*Contents of the right hand navigation flexbox*/
 
     .linkContainer {
     text-align: center;
-    width: 100px;
     box-sizing: border-box;
     }
 
-    .linkContainer > a:any-link {
-        font-size: 20px;
-        text-decoration: none;
-        margin: 0 5px;
-        padding: 5px 10px;
-    }
-
-    .navButton {
+    .navLink {
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 5px;
+    padding: 5px 10px;
     background-color: #434343;
     color: #ffffff;
     }
 
-    .currentNavButton {
+    .currentNavLink {
     background-color: #ffffff;
     color: #434343;
     }
@@ -95,11 +107,6 @@ a{
     width: 100%;
 }
 
-.homeContainer >  * {
-    font-family: futara;
-    color: #ffffff;
-}
-
 /*-------------TRACK-------------*/
 
 .trackContainer {
@@ -108,14 +115,9 @@ a{
     width: 100%;
 }
 
-.trackContainer > * {
-    font-family: futara;
-    color: #ffffff;
-}
-
-.dropdown {
-    font-family: futara;
-    font-size: 30px;
+.dropdown, .dropdownOption {
+    font-family: futura;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -127,10 +129,6 @@ a{
     width: 100%;
 }
 
-.viewContainer > * {
-    font-family: futara;
-    color: #ffffff;
-}
 
 
 
