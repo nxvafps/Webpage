@@ -23,10 +23,25 @@ body{
     color: #ffffff;
 }
 
-/* a{
-    font-family: futura;
-    text-align: center;
-}*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #7b7777;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #7b7777;
+  }
 
 /*-------------NAVIGATION-------------*/
 
@@ -109,17 +124,74 @@ body{
 
 /*-------------TRACK-------------*/
 
-.trackContainer {
-    margin: auto;
-    text-align: center;
-    width: 100%;
+.mapSelectContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
-.dropdown, .dropdownOption {
-    font-family: futura;
-    font-size: 20px;
-    text-align: center;
-}
+    .mapContainer {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .mapSearch {
+            padding: 0px;
+            margin: 0px;
+            width: 200px;
+            height: 40px;
+            border: 1px solid #7b7777;
+            font-family: futura;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        .mapList {
+            padding: 0;
+            margin: 0;
+            width: 200px;
+            max-height: 150px;
+            overflow-y: auto;/*adds scroll bar*/
+            font-family: futura;
+            font-size: 15px;
+            text-align: center;
+            list-style-type: none;/*removes list icons*/
+            display: none;
+            background-color: #ffffff;
+            color: #7b7777;
+        }
+
+        .mapList > li {
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .mapList > li:hover {
+            background-color: #7b7777;
+            color: #ffffff;
+        }
+
+    .gameModeContainer {
+    display: flex;
+    flex-direction: row;
+    height: 40px;
+    align-items: center;
+    }
+
+        .gameModeImg {
+            height: 30px;
+            width: 30px;
+            margin: 5px 5px;
+            display: none;
+        }
+
+        .gameModeText {
+            padding: 0;
+            margin: 0 5px;
+        }
 
 /*--------------VIEW--------------*/
 

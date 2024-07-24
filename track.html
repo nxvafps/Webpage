@@ -37,23 +37,20 @@
 
     </div>
 
-    <div class="trackContainer">
+    <div class="mapSelectContainer">
 
-        <h1>Track</h1>
+        <div class="mapContainer" id="mapContainer">
+            <input type="text" id="mapSearch" class="mapSearch" placeholder="Select Map" onkeyup="filterMaps()">
+            <ul id="mapList" class="mapList"></ul>
+        </div>
 
-        <div class="dropdownContainer">
-            
-            <select class="dropdown mapDropdown">
-                <option class="dropdownOption" selected disabled>Select Map</option>
-                <option class="dropdownOption" value="Antarctic Peninsula">Antarctic Peninsula</option>
-                <option class="dropdownOption" value="Blizzard World">Blizzard World</option>
-                <option class="dropdownOption" value="Busan">Busan</option>
-            </select>
-
+        <div class="gameModeContainer">
+            <p class="gameModeText" ID="gameModeText"></p>
+            <img class="gameModeImg" ID="gameModeImg" src="">
         </div>
 
     </div>
   
-<script src="script.js"></script>
+    <script src="trackScript.js"></script>
 </body>
 </html>
