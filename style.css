@@ -26,22 +26,22 @@ body{
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
-  }
+}
   
-  /* Track */
-  ::-webkit-scrollbar-track {
+/* Track */
+::-webkit-scrollbar-track {
     background: #ffffff;
-  }
+}
   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #7b7777;
-  }
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     background: #7b7777;
-  }
+}
 
 /*-------------NAVIGATION-------------*/
 
@@ -136,17 +136,48 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-items: center;
+        color: #ffffff;
+        background-color: #7b7777;
     }
+
+        .mapTextContainer {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height:40px;
+        }
+
+        .mapText {
+            padding: 0;
+            margin: 0;
+            font-family: futura;
+            font-size: 20px;
+            text-align: center;
+            display: none;
+            background-color: #7b7777;
+            color: #ffffff;
+        }
 
         .mapSearch {
             padding: 0px;
             margin: 0px;
             width: 200px;
             height: 40px;
-            border: 1px solid #7b7777;
+            border: 1px solid #ffffff;
             font-family: futura;
             font-size: 20px;
             text-align: center;
+            background-color: #7b7777;
+            color: #ffffff;
+        }
+
+        .mapSearch::placeholder {
+            color: #ffffff;
         }
 
         .mapList {
@@ -155,6 +186,7 @@ body{
             width: 200px;
             max-height: 150px;
             overflow-y: auto;/*adds scroll bar*/
+            outline: 1px solid #7b7777;
             font-family: futura;
             font-size: 15px;
             text-align: center;
@@ -184,13 +216,14 @@ body{
         .gameModeImg {
             height: 30px;
             width: 30px;
-            margin: 5px 5px;
+            margin: 5px 10px;
             display: none;
         }
 
         .gameModeText {
             padding: 0;
-            margin: 0 5px;
+            margin: 0;
+            font-size: 20px;
         }
 
 /*--------------VIEW--------------*/

@@ -1,4 +1,4 @@
-
+// map array and initialising variables
 let maps = [
     ["Antarctic Peninsula", "Control"],
     ["Blizzard World", "Hybrid"],
@@ -34,16 +34,54 @@ let mapList = document.getElementById("mapList");
 let mapSearch = document.getElementById("mapSearch");
 let gameModeText = document.getElementById('gameModeText');
 let gameModeImg = document.getElementById("gameModeImg");
+let mapText = document.getElementById("mapText");
 
-
+// creates the map list
 for (let i = 0; i < maps.length; i++) {
     let li = document.createElement('li');
     li.innerText = maps[i][0];
+    li.setAttribute("data-mapName", maps[i][0]);
     li.setAttribute("data-gameMode", maps[i][1]);
-    li.setAttribute("value", i);
+    li.setAttribute("data-index", i);
     mapList.appendChild(li);
 }
 
+// controls whether the map dropdown is shown or hidden
+function dropdownVis(value) {
+    if (value === "show") {
+        mapList.style.display = 'block'; // show dropdown when typing
+        mapSearch.style.width='200px';
+        mapSearch.style.border = 'none';
+    } else if (value === "hide") {
+        mapList.style.display = 'none';
+        mapSearch.style.width ='auto';
+        mapSearch.style.border = '1px solid #ffffff';
+    }
+
+}
+
+// controls whether the map search option or the plain text value is shown
+function mapSearchVis(value) {
+    if(value === "show") {
+
+        mapSearch.style.display = 'block';
+        mapText.style.display = 'none';
+
+    } else if (value === "hide") {
+        mapSearch.style.display = 'none';
+        mapText.style.display = 'flex';
+    }
+}
+
+// sets the map text and map select values qual to the user input if it is a valid map
+function setMap(map) {
+    mapSearch.value = map;
+    mapText.innerText = map;
+    mapSearchVis("hide");
+}
+
+// every time a key is pressed filters the dropdown list for matches
+//every time a key is pressed, runs the checkMapSelection function
 function filterMaps ()
 {
     const input = mapSearch;
@@ -51,7 +89,7 @@ function filterMaps ()
     const li = mapList.getElementsByTagName("li"); 
     let found = false;
 
-    mapList.style.display = 'block'; // show dropdown when typing
+    dropdownVis("show");
 
     for (let i = 0; i < li.length; i++) {
         const mapValue = maps[i][0];
@@ -65,25 +103,21 @@ function filterMaps ()
 
     const validMap = checkMapSelection();
     if (validMap) {
-        
         mapSearch.blur();
-        mapList.style.display = '';
-        mapSearch.value = validMap[0];
+        setMap(validMap[0]);
+        dropdownVis("hide");
         setGameMode(validMap[1]);
-    
     }
 }
 
+//checks whether a valid map has been manually typed into the field
 function checkMapSelection() {
     for(let i = 0; i < maps.length; i++) {
         if (maps[i][0].toLowerCase() === mapSearch.value.toLowerCase()) {
 
             return [maps[i][0], maps[i][1]];
             
-        } else {
-
-            console.log(maps[i][0].toLowerCase() + "!==" + mapSearch.value.toLowerCase());
-        }
+        } 
     }
 
     gameModeImg.setAttribute("src", "");
@@ -91,9 +125,9 @@ function checkMapSelection() {
     gameModeText.innerText = '';
     return null;
 
-    
 }
 
+// sets the game mode
 function setGameMode(gameMode){
     gameModeText.innerText = gameMode;
     if(gameModeText.innerText === "Control") {
@@ -124,25 +158,34 @@ function setGameMode(gameMode){
     }
 }
 
+// shows the dropdown when the Map Select item is highlighted
 mapSearch.addEventListener('focus', () => {
-    mapList.style.display = 'block'; // if the map input is focused, the dropdown is shown
+    dropdownVis("show") // if the map input is focused, the dropdown is shown
 });
 
+// sets the map and game mode when a list element is clicked
 mapList.addEventListener('click', function(event) { // if an element in the map list is clicked
     if (event.target.tagName === 'LI') { // if the element is a list item
+        const selectedMap = event.target.getAttribute('data-mapName');
         const selectedGameMode = event.target.getAttribute('data-gameMode');
-        //gameModeText.innerText = selectedGameMode; // game mode text is set to the game mode 
-        mapSearch.value = event.target.innerText; // search box value is set to the map
-        this.style.display = 'none'; // hide dropdown after selection
+        setMap(selectedMap);
+        dropdownVis("hide");
         setGameMode(selectedGameMode);
     }
 });
 
-// Hide dropdown when clicking outside
+// hide dropdown when clicking outside of select or list elements
+// show dropdown when clicking on the text replacement element
 document.addEventListener('click', function(event) {
-    const isClickInside = document.querySelector('.mapContainer').contains(event.target); // if the mouse click was inside the map container then true
-    if (!isClickInside) { // if the mouse click was outside of the map container
-        mapList.style.display = ''; // hide the dropdown
+    if (!(document.querySelector('.mapContainer').contains(event.target))) { // if the mouse click was outside of the map container
+
+        dropdownVis("hide");
+
+    } else if(document.querySelector('.mapText').contains(event.target)) {
+
+        mapSearchVis("show");
+        mapSearch.focus();
+
     }
 });
 

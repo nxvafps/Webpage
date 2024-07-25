@@ -40,13 +40,16 @@
     <div class="mapSelectContainer">
 
         <div class="mapContainer" id="mapContainer">
-            <input type="text" id="mapSearch" class="mapSearch" placeholder="Select Map" onkeyup="filterMaps()">
+            <div class="mapTextContainer" id="mapTextContainer">
+                <p class="mapText" id = "mapText"></p>
+                <input type="text" id="mapSearch" class="mapSearch" placeholder="Select Map" onkeyup="filterMaps()">
+            </div>
             <ul id="mapList" class="mapList"></ul>
         </div>
 
         <div class="gameModeContainer">
-            <p class="gameModeText" ID="gameModeText"></p>
             <img class="gameModeImg" ID="gameModeImg" src="">
+            <p class="gameModeText" ID="gameModeText"></p>
         </div>
 
     </div>
