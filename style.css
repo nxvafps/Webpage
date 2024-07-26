@@ -16,10 +16,13 @@
 }
 
 /*--------------GENERAL--------------*/
-
+* {
+    margin: 0;
+    padding: 0;
+    font-family: futura;
+}
 body{
     background-color: #7b7777;
-    font-family: futura;
     color: #ffffff;
 }
 
@@ -50,69 +53,61 @@ body{
     height: 80px;
     width: 100%;
     display: flex;
-    align-items: center; /*vertically aligns items in the center*/
-    justify-content: space-between; /*Sets equal space between all elements inside*/
+    align-items: center; 
+    justify-content: space-between; 
 }
 
-.navLeft{
+.navLeft, .navCenter, .navRight{
     display: flex;
-    flex-basis: 33%; /*sets the div width to third of the parents width*/
-    align-items: center; /*vertically aligns items in the center*/
-    justify-content: left; /*horizontally aligns items to the left*/
+    flex-basis: 33%;
+    align-items: center;
 }
 
-    /*Contents of the left hand navigation flexbox*/
+/*Contents of the left hand navigation flexbox*/
 
-    .navIcon {
-    height: 60px;
-    padding: 0 10px;
-    }
+.navIcon {
+height: 60px;
+padding: 0 10px;
+}
 
-    .iconName {
-    font-size: 20px;
-    }
+.iconName, .navLink {
+font-size: 20px;
+}
 
 .navCenter {
-        display: flex;
-        flex-basis: 33%; /*sets the div width to third of the parents width*/
-        align-items: center; /*vertically aligns items in the center*/
-        justify-content: center; /*horizontally aligns items to the center*/
+    justify-content: center;
+    text-align: center;
 }
 
-    /*Contents of the center navigation flexbox*/
+/*Contents of the center navigation flexbox*/
 
-    .pageTitle {
-        font-size: 30px;
-        text-align: center;
-    }
+.pageTitle {
+    font-size: 30px;
+}
 
 .navRight {
-    display: flex;
-    flex-basis: 33%; /*sets the div width to third of the parents width*/
-    align-items: center; /*vertically aligns items in the center*/
-    justify-content: right; /*horizontally aligns items to the right*/
+    justify-content: flex-end; 
 }
 
-    /*Contents of the right hand navigation flexbox*/
+/*Contents of the right hand navigation flexbox*/
 
-    .linkContainer {
+.linkContainer {
     text-align: center;
     box-sizing: border-box;
-    }
+}
 
-    .navLink {
-    font-size: 20px;
+.navLink {
     text-decoration: none;
     margin: 0 5px;
     padding: 5px 10px;
     background-color: #434343;
     color: #ffffff;
-    }
+}
 
-    .currentNavLink {
+.currentNavLink {
     background-color: #ffffff;
     color: #434343;
-    }
+}
 
 /*--------------HOME--------------*/
 
@@ -130,32 +125,24 @@ body{
     justify-content: center;
 }
 
-    .mapContainer {
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-items: center;
-        color: #ffffff;
-        background-color: #7b7777;
-    }
+.mapContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 175px;
+    color: #ffffff;
+    background-color: #7b7777;
+}
 
         .mapTextContainer {
-            margin: 0;
-            padding: 0;
-            outline: none;
-            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
+            max-width: 175px;
             height:40px;
         }
 
         .mapText {
-            padding: 0;
-            margin: 0;
-            font-family: futura;
             font-size: 20px;
             text-align: center;
             display: none;
@@ -164,9 +151,7 @@ body{
         }
 
         .mapSearch {
-            padding: 0px;
-            margin: 0px;
-            width: 200px;
+            max-width: 175px;
             height: 40px;
             border: 1px solid #ffffff;
             font-family: futura;
@@ -181,9 +166,9 @@ body{
         }
 
         .mapList {
-            padding: 0;
-            margin: 0;
-            width: 200px;
+            /*padding:0;
+            margin:0;*/
+            width: 175px;
             max-height: 150px;
             overflow-y: auto;/*adds scroll bar*/
             outline: 1px solid #7b7777;
@@ -221,8 +206,6 @@ body{
         }
 
         .gameModeText {
-            padding: 0;
-            margin: 0;
             font-size: 20px;
         }
 

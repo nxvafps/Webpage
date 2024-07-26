@@ -30,11 +30,11 @@ let maps = [
     ["Watchpoint: Gibraltar", "Escort"]
 ];
 
-let mapList = document.getElementById("mapList");
-let mapSearch = document.getElementById("mapSearch");
-let gameModeText = document.getElementById('gameModeText');
-let gameModeImg = document.getElementById("gameModeImg");
-let mapText = document.getElementById("mapText");
+const mapList = document.getElementById("mapList");
+const mapSearch = document.getElementById("mapSearch");
+const gameModeText = document.getElementById('gameModeText');
+const gameModeImg = document.getElementById("gameModeImg");
+const mapText = document.getElementById("mapText");
 
 // creates the map list
 for (let i = 0; i < maps.length; i++) {
@@ -47,30 +47,15 @@ for (let i = 0; i < maps.length; i++) {
 }
 
 // controls whether the map dropdown is shown or hidden
-function dropdownVis(value) {
-    if (value === "show") {
-        mapList.style.display = 'block'; // show dropdown when typing
-        mapSearch.style.width='200px';
-        mapSearch.style.border = 'none';
-    } else if (value === "hide") {
-        mapList.style.display = 'none';
-        mapSearch.style.width ='auto';
-        mapSearch.style.border = '1px solid #ffffff';
-    }
-
+function dropdownVis(listVis) {
+    mapList.style.display = listVis === "show" ? "block" : "none";
+    mapSearch.style.border = listVis === "show" ? "none" : "1px solid #ffffff";
 }
 
 // controls whether the map search option or the plain text value is shown
-function mapSearchVis(value) {
-    if(value === "show") {
-
-        mapSearch.style.display = 'block';
-        mapText.style.display = 'none';
-
-    } else if (value === "hide") {
-        mapSearch.style.display = 'none';
-        mapText.style.display = 'flex';
-    }
+function mapSearchVis(searchVis) {
+    mapSearch.style.display = searchVis === "show" ? "block" : "none";
+    mapText.style.display = searchVis === "show" ? "none" : "flex";
 }
 
 // sets the map text and map select values qual to the user input if it is a valid map
@@ -84,20 +69,17 @@ function setMap(map) {
 //every time a key is pressed, runs the checkMapSelection function
 function filterMaps ()
 {
-    const input = mapSearch;
-    const filter = input.value.toLowerCase();
+    const filter = mapSearch.value.toLowerCase();
     const li = mapList.getElementsByTagName("li"); 
     let found = false;
 
     dropdownVis("show");
 
     for (let i = 0; i < li.length; i++) {
-        const mapValue = maps[i][0];
-        if (mapValue.toLowerCase().indexOf(filter) > -1) { //if input text does match the map
-            li[i].style.display = ''; // sets elements display property to default
-            found = true; // matches are found so this is true
-        } else { // if input text does not match the map
-            li[i].style.display = 'none'; // hide the element 
+        //const mapValue = maps[i][0];
+        li[i].style.display = maps[i][0].toLowerCase().includes(filter) ? '' : 'none'; 
+        if (li[i].style.display !== 'none') {
+            found = true;
         }
     }
 
@@ -112,10 +94,10 @@ function filterMaps ()
 
 //checks whether a valid map has been manually typed into the field
 function checkMapSelection() {
-    for(let i = 0; i < maps.length; i++) {
-        if (maps[i][0].toLowerCase() === mapSearch.value.toLowerCase()) {
+    for(const [mapName, gameMode] of maps) {
+        if (mapName.toLowerCase() === mapSearch.value.toLowerCase()) {
 
-            return [maps[i][0], maps[i][1]];
+            return [mapName, gameMode];
             
         } 
     }
@@ -130,41 +112,25 @@ function checkMapSelection() {
 // sets the game mode
 function setGameMode(gameMode){
     gameModeText.innerText = gameMode;
-    if(gameModeText.innerText === "Control") {
-    
+    gameModeImg.style.display = 'block';
+    if(gameMode === "Control") {
         gameModeImg.setAttribute("src", "Images/gameModes/Control.png");
-        gameModeImg.style.display = 'block';
-    
-    } else if (gameModeText.innerText === "Escort") {
-    
+    } else if (gameMode === "Escort") {
         gameModeImg.setAttribute("src", "Images/gameModes/Escort.png");
-        gameModeImg.style.display = 'block';
-    
-    } else if (gameModeText.innerText === "Flashpoint") {
-        
+    } else if (gameMode === "Flashpoint") {
         gameModeImg.setAttribute("src", "Images/gameModes/Flashpoint.png");
-        gameModeImg.style.display = 'block';
-        
-    } else if (gameModeText.innerText === "Hybrid") {
-        
+    } else if (gameMode === "Hybrid") {
         gameModeImg.setAttribute("src", "Images/gameModes/Hybrid.png");
-        gameModeImg.style.display = 'block';
-        
-    } else if (gameModeText.innerText === "Push") {
-        
+    } else if (gameMode === "Push") {
         gameModeImg.setAttribute("src", "Images/gameModes/Push.png");
-        gameModeImg.style.display = 'block';
-        
     }
 }
 
 // shows the dropdown when the Map Select item is highlighted
-mapSearch.addEventListener('focus', () => {
-    dropdownVis("show") // if the map input is focused, the dropdown is shown
-});
+mapSearch.addEventListener('focus', () => dropdownVis("show"));
 
 // sets the map and game mode when a list element is clicked
-mapList.addEventListener('click', function(event) { // if an element in the map list is clicked
+mapList.addEventListener('click', (event) => { // if an element in the map list is clicked
     if (event.target.tagName === 'LI') { // if the element is a list item
         const selectedMap = event.target.getAttribute('data-mapName');
         const selectedGameMode = event.target.getAttribute('data-gameMode');
@@ -176,7 +142,7 @@ mapList.addEventListener('click', function(event) { // if an element in the map 
 
 // hide dropdown when clicking outside of select or list elements
 // show dropdown when clicking on the text replacement element
-document.addEventListener('click', function(event) {
+document.addEventListener('click', (event) => {
     if (!(document.querySelector('.mapContainer').contains(event.target))) { // if the mouse click was outside of the map container
 
         dropdownVis("hide");

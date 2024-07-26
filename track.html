@@ -8,52 +8,52 @@
 </head>
 <body> 
 
-    <div class="navigation">
+    <header class="navigation">
 
-        <div class="navLeft">
-            <div class="iconContainer">
-                <img src="Images/novaLogo3.png" class="navIcon">
-            </div>
+        <nav class="navLeft">
+            <figure class="iconContainer">
+                <img src="Images/novaLogo3.png" class="navIcon" alt="Nova Logo">
+            </figure>
             <div class="iconNameContainer">
                 <h1 class="iconName">novaFPS</h1>
             </div>
-        </div>
+        </nav>
 
-        <div class="navCenter">
+        <nav class="navCenter">
             <h1 class="pageTitle">Track Games</h1>
-        </div>
+        </nav>
 
-        <div class="navRight">
-            <div class="linkContainer">
+        <nav class="navRight">
+            <nav class="linkContainer">
                 <a href="index.html" class="homeLink navLink">Home</a>
-            </div>
-            <div class="linkContainer">
+            </nav>
+            <nav class="linkContainer">
                 <a href="track.html" class="trackLink navLink currentNavLink">Track</a>
-            </div>
-            <div class="linkContainer">
+            </nav>
+            <nav class="linkContainer">
               <a href="view.html" class="viewLink navLink">View</a>
-            </div>
-        </div>
+            </nav>
+        </nav>
+    </header>
 
-    </div>
+    <main class="trackContainer">
+        <section class="mapSelectContainer">
 
-    <div class="mapSelectContainer">
+            <section class="mapContainer" id="mapContainer">
+                <figure class="mapTextContainer" id="mapTextContainer">
+                    <p class="mapText" id = "mapText"></p>
+                    <input type="text" id="mapSearch" class="mapSearch" placeholder="Select Map" onkeyup="filterMaps()">
+                </figure>
+                <ul id="mapList" class="mapList"></ul>
+            </section>
 
-        <div class="mapContainer" id="mapContainer">
-            <div class="mapTextContainer" id="mapTextContainer">
-                <p class="mapText" id = "mapText"></p>
-                <input type="text" id="mapSearch" class="mapSearch" placeholder="Select Map" onkeyup="filterMaps()">
-            </div>
-            <ul id="mapList" class="mapList"></ul>
-        </div>
+            <section class="gameModeContainer">
+                <img class="gameModeImg" id="gameModeImg" src="">
+                <p class="gameModeText" id="gameModeText"></p>
+            </section>
 
-        <div class="gameModeContainer">
-            <img class="gameModeImg" ID="gameModeImg" src="">
-            <p class="gameModeText" ID="gameModeText"></p>
-        </div>
-
-    </div>
-  
+        </section>
+    </main>
     <script src="trackScript.js"></script>
 </body>
 </html>
