@@ -64,7 +64,7 @@ function setMap(e, f) {
     dropdownVis("h");
     gameModeText.innerText = f;
     gameModeImg.style.display = 'block';
-    gameModeImg.setAttribute("src", "Images/gameModes/" + f + ".png");
+    gameModeImg.setAttribute("src", "../assets/Images/gameModes/" + f + ".png");
 }
 
 // every time a key is pressed filters the dropdown list for matches every time a key is pressed, runs the checkMapSelection function

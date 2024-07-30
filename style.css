@@ -2,17 +2,17 @@
 
 @font-face {
     font-family: bigNoodle;
-    src: url("Fonts/bigNoodle.ttf");
+    src: url("./assets/Fonts/bigNoodle.ttf");
 }
 
 @font-face {
     font-family: bankSans;
-    src: url("Fonts/bankSans.otf");
+    src: url("./assets/Fonts/bankSans.otf");
 }
 
 @font-face {
     font-family: futura;
-    src: url("Fonts/Futura.otf");
+    src: url("./assets/Fonts/Futura.otf");
 }
 
 /*--------------GENERAL--------------*/
