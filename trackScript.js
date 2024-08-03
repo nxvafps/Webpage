@@ -30,17 +30,18 @@ let maps = [
     ["Watchpoint: Gibraltar", "Escort"]
 ];
 
-const mapList = document.getElementById("mapList"),
-mapSearch = document.getElementById("mapSearch"),
-gameModeText = document.getElementById('gameModeText'),
-gameModeImg = document.getElementById("gameModeImg"),
-mapText = document.getElementById("mapText");
+const mapList = document.querySelector("#mapList"),
+mapSearch = document.querySelector("#mapSearch"),
+gameModeText = document.querySelector("#gameModeText"),
+gameModeImg = document.querySelector("#gameModeImg"),
+mapText = document.querySelector("#mapText");
 
 // creates the map list
 for (let i = 0; i < maps.length; i++) {
-    let li = document.createElement('li');
+    let li = document.createElement("li");
     li.innerText = maps[i][0];
     li.setAttribute("data-index", i);
+    li.classList.add("mapListItem")
     mapList.appendChild(li);
 }
 
@@ -63,23 +64,18 @@ function setMap(e, f) {
     mapSearchVis("h");
     dropdownVis("h");
     gameModeText.innerText = f;
-    gameModeImg.style.display = 'block';
+    gameModeImg.style.display = "block";
     gameModeImg.setAttribute("src", "../assets/Images/gameModes/" + f + ".png");
 }
 
 // every time a key is pressed filters the dropdown list for matches every time a key is pressed, runs the checkMapSelection function
 function filterMaps () {
     const filter = mapSearch.value.toLowerCase();
-    const li = mapList.getElementsByTagName("li"); 
+    const li = mapList.querySelectorAll("li"); 
     dropdownVis("s");
     for (let i = 0; i < li.length; i++) {
-        li[i].style.display = maps[i][0].toLowerCase().includes(filter) ? '' : 'none';
+        li[i].style.display = maps[i][0].toLowerCase().includes(filter) ? "" : "none";
     }
-    checkMapSelection();
-}
-
-//checks whether a valid map has been manually typed into the field
-function checkMapSelection() {
     for(const [mapName, gameMode] of maps) {
         if (mapName.toLowerCase() === mapSearch.value.toLowerCase()) {
             mapSearch.blur();
@@ -92,24 +88,24 @@ function checkMapSelection() {
     gameModeText.innerText = '';
 }
 
-// shows the dropdown when the Map Select item is highlighted
-mapSearch.addEventListener('focus', () => dropdownVis("s"));
+// shows the dropdown when the Map Select item is focused
+mapSearch.addEventListener("focus", () => dropdownVis("s"));
 
-// sets the map and game mode when a list element is clicked
-mapList.addEventListener('click', (event) => { // if an element in the map list is clicked
-    if (event.target.tagName === 'LI') { // if the element is a list item
-        const index = event.target.getAttribute('data-index');
-        setMap(maps[index][0], maps[index][1]);
+
+// Listener for clicks on the page 
+document.addEventListener("click", (event) => {
+    if (!(document.querySelector(".mapContainer").contains(event.target))) { // if the click was not on an element inside of the map selection container
+        dropdownVis("h"); // hide the dropdown menu
+        return;
     }
-});
-
-// hide dropdown when clicking outside of select or list elements, show dropdown when clicking on the text replacement element
-document.addEventListener('click', (event) => {
-    if (!(document.querySelector('.mapContainer').contains(event.target))) { // if the mouse click was outside of the map container
-        dropdownVis("h");
-    } else if(document.querySelector('.mapText').contains(event.target)) {
-        mapSearchVis("s");
-        mapSearch.focus();
+    if(mapText.contains(event.target)) { // if the click was inside of the map text element 
+        mapSearchVis("s"); //show the map input element and hide the map text element
+        mapSearch.focus(); // focus on the map input element
+        return;
+    }
+    if(event.target.classList.contains("mapListItem")) { //if the click was on a map list element
+        const index = event.target.getAttribute("data-index"); //get the index value of the map in the original array
+        setMap(maps[index][0], maps[index][1]); //set the map to the element that was clicked on
     }
 });
 
