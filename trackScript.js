@@ -69,7 +69,7 @@ function setMap(e, f) {
 }
 
 // every time a key is pressed filters the dropdown list for matches every time a key is pressed, runs the checkMapSelection function
-function filterMaps () {
+mapSearch.addEventListener("keyup", () => {
     const filter = mapSearch.value.toLowerCase();
     const li = mapList.querySelectorAll("li"); 
     dropdownVis("s");
@@ -86,10 +86,11 @@ function filterMaps () {
     gameModeImg.setAttribute("src", "");
     gameModeImg.style.display = '';
     gameModeText.innerText = '';
-}
+});
 
 // shows the dropdown when the Map Select item is focused
-mapSearch.addEventListener("focus", () => dropdownVis("s"));
+mapSearch.addEventListener("focus", () => dropdownVis("s")); //() => is used because we dont need to access properties of the event 
+
 
 
 // Listener for clicks on the page 
