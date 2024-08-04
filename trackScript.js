@@ -32,6 +32,7 @@ let maps = [
 
 const mapList = document.querySelector("#mapList"),
 mapSearch = document.querySelector("#mapSearch"),
+gameModeContainer = document.querySelector("#gameModeContainer"),
 gameModeText = document.querySelector("#gameModeText"),
 gameModeImg = document.querySelector("#gameModeImg"),
 mapText = document.querySelector("#mapText");
@@ -41,40 +42,42 @@ for (let i = 0; i < maps.length; i++) {
     let li = document.createElement("li");
     li.innerText = maps[i][0];
     li.setAttribute("data-index", i);
-    li.classList.add("mapListItem")
+    li.classList.add("mapListItem");
     mapList.appendChild(li);
+    dropdownVis("hide");
 }
 
 // controls whether the map dropdown is shown or hidden
-function dropdownVis(e) {
-    mapList.style.display = "s" === e ? "block" : "none";
-    mapSearch.style.border = "s" === e ? "none" : "1px solid #ffffff";
+function dropdownVis(a) {
+    
+    mapList.classList.toggle("invisible", a === "hide");
+    mapSearch.classList.toggle("border", a === "show");
 }
 
 // controls whether the map search option or the plain text value is shown
-function mapSearchVis(e) {
-    mapSearch.style.display = "s" === e ? "block" : "none";
-    mapText.style.display = "s" === e ? "none" : "flex";
+function mapSearchVis(a) {
+    mapSearch.classList.toggle("invisible", a === "hide");
+    mapText.classList.toggle("invisible", a === "show");
 }
 
 // sets the map text and map select values equal to the user input and the game mode text and image values equal to their respective value if the user input is a valid map
 function setMap(e, f) {
     mapSearch.value = e;
     mapText.innerText = e;
-    mapSearchVis("h");
-    dropdownVis("h");
+    mapSearchVis("hide");
+    dropdownVis("hide");
     gameModeText.innerText = f;
-    gameModeImg.style.display = "block";
     gameModeImg.setAttribute("src", "../assets/Images/gameModes/" + f + ".png");
+    gameModeImg.classList.remove("invisible")
 }
 
 // every time a key is pressed filters the dropdown list for matches every time a key is pressed, runs the checkMapSelection function
 mapSearch.addEventListener("keyup", () => {
     const filter = mapSearch.value.toLowerCase();
     const li = mapList.querySelectorAll("li"); 
-    dropdownVis("s");
+    dropdownVis();
     for (let i = 0; i < li.length; i++) {
-        li[i].style.display = maps[i][0].toLowerCase().includes(filter) ? "" : "none";
+        li[i].classList.toggle("invisible", !maps[i][0].toLowerCase().includes(filter));
     }
     for(const [mapName, gameMode] of maps) {
         if (mapName.toLowerCase() === mapSearch.value.toLowerCase()) {
@@ -83,24 +86,25 @@ mapSearch.addEventListener("keyup", () => {
             return;
         }
     }
+    gameModeImg.classList.add("invisible");
     gameModeImg.setAttribute("src", "");
-    gameModeImg.style.display = '';
-    gameModeText.innerText = '';
+    gameModeText.innerText = "";
 });
 
 // shows the dropdown when the Map Select item is focused
-mapSearch.addEventListener("focus", () => dropdownVis("s")); //() => is used because we dont need to access properties of the event 
+mapSearch.addEventListener("focus", () => dropdownVis("show")); //() => is used because we dont need to access properties of the event 
 
 
 
 // Listener for clicks on the page 
 document.addEventListener("click", (event) => {
     if (!(document.querySelector(".mapContainer").contains(event.target))) { // if the click was not on an element inside of the map selection container
-        dropdownVis("h"); // hide the dropdown menu
+        dropdownVis("hide"); // hide the dropdown menu
         return;
     }
     if(mapText.contains(event.target)) { // if the click was inside of the map text element 
-        mapSearchVis("s"); //show the map input element and hide the map text element
+        mapSearchVis("show"); //show the map input element and hide the map text element
+        dropdownVis("show");
         mapSearch.focus(); // focus on the map input element
         return;
     }

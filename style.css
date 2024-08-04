@@ -25,7 +25,12 @@ body{
     background-color: #7b7777;
     color: #ffffff;
 }
-
+.invisible {
+    display: none;
+}
+.border {
+    border: 1px solid #ffffff;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -145,7 +150,6 @@ font-size: 20px;
         .mapText {
             font-size: 20px;
             text-align: center;
-            display: none;
             background-color: #7b7777;
             color: #ffffff;
         }
@@ -172,7 +176,6 @@ font-size: 20px;
             font-size: 15px;
             text-align: center;
             list-style-type: none;/*removes list icons*/
-            display: none;
             background-color: #ffffff;
             color: #7b7777;
         }
@@ -198,7 +201,6 @@ font-size: 20px;
             height: 30px;
             width: 30px;
             margin: 5px 10px;
-            display: none;
         }
 
         .gameModeText {
