@@ -30,12 +30,13 @@ let maps = [
     ["Watchpoint: Gibraltar", "Escort"]
 ];
 
-const mapList = document.querySelector("#mapList"),
+const mapContainer = document.querySelector("#mapContainer"),
+mapList = document.querySelector("#mapList"),
 mapSearch = document.querySelector("#mapSearch"),
+mapText = document.querySelector("#mapText"),
 gameModeContainer = document.querySelector("#gameModeContainer"),
 gameModeText = document.querySelector("#gameModeText"),
-gameModeImg = document.querySelector("#gameModeImg"),
-mapText = document.querySelector("#mapText");
+gameModeImg = document.querySelector("#gameModeImg");
 
 // creates the map list
 for (let i = 0; i < maps.length; i++) {
@@ -49,7 +50,6 @@ for (let i = 0; i < maps.length; i++) {
 
 // controls whether the map dropdown is shown or hidden
 function dropdownVis(a) {
-    
     mapList.classList.toggle("invisible", a === "hide");
     mapSearch.classList.toggle("border", a === "show");
 }
@@ -79,7 +79,7 @@ mapSearch.addEventListener("keyup", () => {
     for (let i = 0; i < li.length; i++) {
         li[i].classList.toggle("invisible", !maps[i][0].toLowerCase().includes(filter));
     }
-    for(const [mapName, gameMode] of maps) {
+    for (const [mapName, gameMode] of maps) {
         if (mapName.toLowerCase() === mapSearch.value.toLowerCase()) {
             mapSearch.blur();
             setMap(mapName, gameMode);
@@ -91,24 +91,19 @@ mapSearch.addEventListener("keyup", () => {
     gameModeText.innerText = "";
 });
 
-// shows the dropdown when the Map Select item is focused
-mapSearch.addEventListener("focus", () => dropdownVis("show")); //() => is used because we dont need to access properties of the event 
-
-
-
 // Listener for clicks on the page 
 document.addEventListener("click", (event) => {
-    if (!(document.querySelector(".mapContainer").contains(event.target))) { // if the click was not on an element inside of the map selection container
+    if (!(mapContainer.contains(event.target))) { // if the click was not on an element inside of the map selection container
         dropdownVis("hide"); // hide the dropdown menu
         return;
     }
-    if(mapText.contains(event.target)) { // if the click was inside of the map text element 
+    if (mapText.contains(event.target) || mapSearch.contains(event.target)) { // if the click was inside of the map text element 
         mapSearchVis("show"); //show the map input element and hide the map text element
         dropdownVis("show");
         mapSearch.focus(); // focus on the map input element
         return;
     }
-    if(event.target.classList.contains("mapListItem")) { //if the click was on a map list element
+    if (event.target.classList.contains("mapListItem")) { //if the click was on a map list element
         const index = event.target.getAttribute("data-index"); //get the index value of the map in the original array
         setMap(maps[index][0], maps[index][1]); //set the map to the element that was clicked on
     }
